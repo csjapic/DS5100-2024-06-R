@@ -1,0 +1,94 @@
+---
+title: "M10 Exercises"
+output: html_document
+date: "2024-07-03"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## M10 Exercises
+
+
+```{r}
+fib<-numeric(10)
+fib[1] <- fib[2] <- 1
+for (i in 3:10) {
+  fib[i] <- fib[i-2] + fib [i-1]
+}
+print(fib)
+```
+
+```{r}
+fib.length <- function(fib) {
+  length(fib)}
+print(fib.length)
+```
+```{r}
+get_fib <- function(n=10){
+  fib <- numeric(n)
+  fib[1] <- fib[2] <- 1
+for (i in 3:n) {
+  fib[i] <- fib[i-2] + fib [i-1]
+}
+return(fib)
+}
+print(get_fib(20))
+```
+
+```{r}
+value <- function(x){
+  if(x>= 0 & x<= 1) {
+  return(1)
+} else {
+  return(0)
+}}
+value(0.5)
+```
+```{r}
+value <- function(n=5){
+for (i in -1:3){
+  if(x>= 0 & x<= 1) {
+  return(1)
+} else {
+  return(0)
+}}}
+value()
+```
+
+```{r}
+lowercase <- letters[1:10]
+lowercase
+
+print(head(letters, 10))
+print(tail(LETTERS, 10))
+print(LETTERS[22:24])
+```
+```{r}
+for (n in 1:100) {
+  if (n %% 3 ==0) {
+    print(paste(n,"Fizz"))
+  }
+  else if (n %% 5 == 0){
+    print(paste(n,"Buzz"))
+  }
+  else if (n %% 3==0 && n %% 5==0){
+    print(paste(n,"FizzBuzz"))
+  }
+  else print(paste(n))
+}
+  
+```
+```{r}
+string <- ("The cow jumped over the moon")
+
+stringv2<- unlist(strsplit(tolower(string), ' '))
+print(unique(stringv2))
+
+```
+```{r}
+numbers <- c(1,1,4,6,6,8)
+print(unique(numbers))
+```
+
