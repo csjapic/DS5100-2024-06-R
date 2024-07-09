@@ -1,0 +1,83 @@
+---
+title: "M12 Exercises"
+output: html_document
+date: "2024-07-09"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## M12 Exercises
+
+```{r}
+library(vctrs)
+library(tidyverse)
+```
+```{r}
+library(dplyr)
+head(mpg)
+mpg%>%
+  ggplot()
+
+mpg%>%
+  ggplot(aes(x= cyl, y=hwy))+ geom_point(color="blue")
+
+
+
+```
+```{r}
+mpg%>%
+  ggplot(aes(x=class, y=drv))+ geom_point()
+```
+```{r}
+
+x<-seq(-6*pi, 6*pi, length.out=100)
+y<- sin(x)/x
+dataframe1 <- data.frame(x,y)
+plot<- dataframe1%>%
+  ggplot(aes(x,y)) + geom_line(color ='darksalmon')
+plot
+```
+```{r}
+cars%>%
+  ggplot(aes(x=speed, y=dist))+geom_point(color='cyan1')
+
+cars%>%
+  ggplot(aes(x=speed, y=dist) )+geom_point(mapping = aes(color = dist >80))
+
+cars%>%
+  ggplot(aes(x=speed, y=dist) )+geom_point(mapping = aes(color = dist >80))+
+  scale_color_manual(values = c("blue", "red"))
+
+cars%>%
+  ggplot(aes(x=speed, y=dist) )+geom_point(mapping = aes(color = dist >80))+
+  scale_color_manual(values = c("blue", "red"))+
+  geom_smooth(method = 'lm')
+
+```
+
+```{r}
+speed<-cars%>%
+  ggplot(aes(x=speed))+geom_histogram(bins=10)
+dist<- cars%>%
+  ggplot(aes(x=dist))+geom_histogram(bins=15)
+speed
+dist
+```
+```{r}
+mpg%>%
+  ggplot()+
+  geom_point(aes(x=hwy, y=cty))+
+  facet_grid(drv ~ cyl)
+  ##empty cells mean there are not combinations 
+```
+```{r}
+iris%>%
+  ggplot(aes(x=Sepal.Length, y=Sepal.Width, color=Species, shape=Species))+
+  geom_point()+
+  geom_density2d()+
+  ggtitle('IRIS')+
+  theme_light()
+```
+
